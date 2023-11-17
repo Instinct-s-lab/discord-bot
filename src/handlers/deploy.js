@@ -1,6 +1,8 @@
 const { REST, Routes } = require("discord.js");
 const { log } = require("../functions");
 const config = require("../config");
+const dotenv = require("dotenv");
+dotenv.config();
 const ExtendedClient = require("../class/ExtendedClient");
 
 /**
@@ -9,7 +11,7 @@ const ExtendedClient = require("../class/ExtendedClient");
  */
 module.exports = async (client) => {
   const rest = new REST({ version: "10" }).setToken(
-    process.env.CLIENT_TOKEN || config.client.token
+    process.env.CLIENT_TOKEN
   );
 
   try {

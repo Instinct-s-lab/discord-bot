@@ -95,7 +95,7 @@ module.exports = {
 2. Download this project as a **.zip** file: [Click here](https://github.com/TFAGaming/DiscordJS-V14-Bot-Template/archive/refs/heads/main.zip)
 3. Extract the .zip file into a normal folder.
 4. Open VSCode, click on **Open Folder**, and select the new created folder.
-5. Go to `src/` and rename `example.config.js` to `config.js` and fill all the required values.
+5. Go to `src/` and rename `config.js` to `config.js` and fill all the required values.
 
 ```ts
 module.exports = {
