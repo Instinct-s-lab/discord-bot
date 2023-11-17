@@ -21,7 +21,7 @@ module.exports = async (client) => {
     );
 
     await rest.put(
-      Routes.applicationCommands(process.env.CLIENT_ID || config.client.id),
+      Routes.applicationCommands(process.env.CLIENT_ID),
       {
         body: client.applicationcommandsArray,
       }
@@ -30,5 +30,6 @@ module.exports = async (client) => {
     log("Successfully loaded application commands to Discord API.", "done");
   } catch (e) {
     log("Unable to load application commands to Discord API.", "err");
+    console.error(e);
   }
 };
