@@ -1,5 +1,7 @@
 const { Client, Partials, Collection, GatewayIntentBits } = require("discord.js");
 const config = require('../config');
+const dotenv = require("dotenv");
+dotenv.config();
 const commands = require("../handlers/commands");
 const events = require("../handlers/events");
 const deploy = require("../handlers/deploy");
@@ -38,10 +40,10 @@ module.exports = class extends Client {
         events(this);
         components(this);
 
-        if (config.handler.mongodb.toggle) mongoose();
+       // if (config.handler.mongodb.toggle) mongoose();
+        console.log(process.env.CLIENT_TOKEN);
+        await this.login(process.env.CLIENT_TOKEN);
 
-        await this.login(process.env.CLIENT_TOKEN || config.client.token);
-
-        if (config.handler.deploy) deploy(this, config);
+        if (config.handler.deploy) await deploy(this, config);
     };
 };
